@@ -66,6 +66,15 @@ class Bases {
     return this.bases[base] === 1;
   }
 
+  formatResults() {
+    let results = '';
+
+    Object.keys(this.bases).forEach(base  => {
+      results += this.bases[base];
+    });
+
+    return results;
+  }
 }
 
 module.exports = Bases;
