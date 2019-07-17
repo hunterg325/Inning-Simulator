@@ -91,15 +91,15 @@ class Inning {
       }
     });
 
-    Inning.endInning(bases, this.outs, this.runs);
+    this.endInning(bases);
   }
 
   static isOver(outs) {
     return outs === 3;
   }
 
-  static endInning(bases, outs, runs) {
-    console.log(`Bases: ${bases.formatResults()}, Outs: ${outs}, Runs: ${runs}`);
+  endInning(bases) {
+    console.log(`Bases: ${bases.formatResults()}, Outs: ${this.outs}, Runs: ${this.runs}`);
   }
 }
 
