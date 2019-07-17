@@ -58,14 +58,14 @@ class Inning {
         }
 
         case 'bb': {
-          const isWalk = true;
-          this.runs = bases.advanceRunners(1, this.runs, isWalk);
+          const isWalkOrHbp = true;
+          this.runs = bases.advanceRunners(1, this.runs, isWalkOrHbp);
           break;
         }
 
         case 'hbp': {
-          const isHbp = true;
-          this.runs = bases.advanceRunners(1, this.runs, isHbp);
+          const isWalkOrHbp = true;
+          this.runs = bases.advanceRunners(1, this.runs, isWalkOrHbp);
           break;
         }
 
@@ -75,11 +75,11 @@ class Inning {
         }
 
         case 'out': {
-          const isWalkorHbp = false;
+          const isWalkOrHbp = false;
           const isOut = true;
 
           if (this.outs < 3) {
-            this.runs = bases.advanceRunners(1, this.runs, isWalkorHbp, isOut);
+            this.runs = bases.advanceRunners(1, this.runs, isWalkOrHbp, isOut);
           }
           break;
         }
