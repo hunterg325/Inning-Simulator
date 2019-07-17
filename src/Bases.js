@@ -11,7 +11,9 @@ class Bases {
     let runners = 0;
 
     Object.keys(this.bases).forEach(base => {
-      this.bases[base] > 0 ? runners += 1 : null;
+      if (this.bases[base] > 0) {
+        runners += 1;
+      }
     });
 
     return runners;
@@ -21,20 +23,14 @@ class Bases {
     return this.getRunners() === 3;
   }
 
-  empty() {
-    this.bases = {
-      first: 0,
-      second: 0,
-      third: 0
-    }
-  }
-
   advanceRunners(baseCount, runs, isWalkOrHbp) {
     let hasHitterAdvanced = false;
 
     for (let i = 0; i < baseCount; i += 1) {
       // Check if runner is on third
       if (this.isRunnerOnBase('third')) {
+
+        // Check if play type is not walk or HBP or is
         if (!isWalkOrHbp || isWalkOrHbp && this.isLoaded()) {
           // Advance runner home
           runs += 1;
@@ -64,14 +60,6 @@ class Bases {
     }
 
     return runs;
-  }
-
-  advanceRunner(base) {
-    return this.bases[base] = 1;
-  }
-
-  emptyBase(base) {
-    this.bases[base] = 0;
   }
 
   isRunnerOnBase(base) {
