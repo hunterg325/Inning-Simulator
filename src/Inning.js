@@ -58,19 +58,29 @@ class Inning {
         }
 
         case 'bb': {
-          const isOnlyHitterAdvancing = true;
-          this.runs = bases.advanceRunners(1, this.runs, isOnlyHitterAdvancing);
+          const isWalk = true;
+          this.runs = bases.advanceRunners(1, this.runs, isWalk);
           break;
         }
 
         case 'hbp': {
-          const isOnlyHitterAdvancing = true;
-          this.runs = bases.advanceRunners(1, this.runs, isOnlyHitterAdvancing);
+          const isHbp = true;
+          this.runs = bases.advanceRunners(1, this.runs, isHbp);
           break;
         }
 
         case 'e': {
           this.runs = bases.advanceRunners(1, this.runs);
+          break;
+        }
+
+        case 'out': {
+          const isWalkorHbp = false;
+          const isOut = true;
+
+          if (this.outs < 3) {
+            this.runs = bases.advanceRunners(1, this.runs, isWalkorHbp, isOut);
+          }
           break;
         }
 

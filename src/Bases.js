@@ -23,7 +23,7 @@ class Bases {
     return this.getRunners() === 3;
   }
 
-  advanceRunners(baseCount, runs, isWalkOrHbp) {
+  advanceRunners(baseCount, runs, isWalkOrHbp, isOut) {
     let hasHitterAdvanced = false;
 
     for (let i = 0; i < baseCount; i += 1) {
@@ -51,7 +51,7 @@ class Bases {
 
       }
 
-      if (!hasHitterAdvanced) {
+      if (!hasHitterAdvanced && !isOut) {
         this.bases.first = 1;
       }
 
