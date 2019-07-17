@@ -46,7 +46,6 @@ class Bases {
         // Advance runner to second
         this.bases.second = 1;
         this.bases.first = 0;
-
       }
 
       // Ensure hitter has not advanced and the hitter is not out
