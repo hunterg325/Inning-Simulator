@@ -22,7 +22,8 @@ class Inning {
       // Ensure play type is valid. If not, return here
       if (!playTypes.isValid(type)) {
         console.log(`Play type ${type} is an invalid play type`);
-        return;
+        console.log(`Play type(s) must be one of the following: ${playTypes.validTypes.join()}`);
+        return isInningOver = true;
       }
 
       // Check if type is an out or a k
