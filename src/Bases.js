@@ -27,10 +27,8 @@ class Bases {
     let hasHitterAdvanced = false;
 
     for (let i = 0; i < baseCount; i += 1) {
-      // Check if runner is on third
       if (this.isRunnerOnBase('third')) {
-
-        // Check if play type is not walk or HBP or is
+        // Check if play type is not walk or HBP or is walk or HBP and bases are loaded
         if (!isWalkOrHbp || isWalkOrHbp && this.isLoaded()) {
           // Advance runner home
           runs += 1;
@@ -51,12 +49,12 @@ class Bases {
 
       }
 
+      // Ensure hitter has not advanced and the hitter is not out
       if (!hasHitterAdvanced && !isOut) {
         this.bases.first = 1;
       }
 
       hasHitterAdvanced = true;
-
     }
 
     return runs;

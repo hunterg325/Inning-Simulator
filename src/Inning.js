@@ -75,8 +75,8 @@ class Inning {
         }
 
         case 'out': {
-          const isWalkOrHbp = false;
           const isOut = true;
+          const isWalkOrHbp = false;
 
           if (this.outs < 3) {
             this.runs = bases.advanceRunners(1, this.runs, isWalkOrHbp, isOut);
@@ -90,14 +90,14 @@ class Inning {
       }
     });
 
-    this.endInning(bases, this.outs, this.runs);
+    Inning.endInning(bases, this.outs, this.runs);
   }
 
   static isOver(outs) {
     return outs === 3;
   }
 
-  endInning(bases, outs, runs) {
+  static endInning(bases, outs, runs) {
     console.log(`Bases: ${bases.formatResults()}, Outs: ${outs}, Runs: ${runs}`);
   }
 }
