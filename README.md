@@ -1,4 +1,4 @@
-## Inning Simulator
+## Inning Simulator (Houston Astros R&D Hiring Project)
 
 #### Getting started
 
